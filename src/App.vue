@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <v-app>
+        <AppBar/>
+
+        <v-main>
+            <Find @filmWord='selectFilms'/>
+            <Films word="word"/>
+            <HelloWorld/>
+        </v-main>
+    </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import HelloWorld from './components/HelloWorld';
+    import AppBar from './components/AppBar';
+    import Films from './components/Films';
+    import Find from './components/AutocomleteComponent'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'App',
+        components: {
+            AppBar,
+            HelloWorld,
+            Films,
+            Find
+        },
+
+        methods: {
+            selectFilms(word){
+                return word
+            }
+        },
+
+        data: () => ({
+            //
+        }),
+    };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
