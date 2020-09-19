@@ -4,7 +4,8 @@
 
         <v-main>
             <Find @filmWord='selectFilms'/>
-            <Films word="word"/>
+            <Cards />
+            <Films :word='word'/>
             <HelloWorld/>
         </v-main>
     </v-app>
@@ -15,6 +16,8 @@
     import AppBar from './components/AppBar';
     import Films from './components/Films';
     import Find from './components/AutocomleteComponent'
+    import Cards from './components/Cards';
+
 
     export default {
         name: 'App',
@@ -22,7 +25,8 @@
             AppBar,
             HelloWorld,
             Films,
-            Find
+            Find,
+            Cards
         },
 
         methods: {
@@ -31,8 +35,10 @@
             }
         },
 
-        data: () => ({
-            //
-        }),
+        data () {
+            return {
+                word: this.methods.selectFilms,
+            }
+        },
     };
 </script>
